@@ -1,0 +1,8 @@
+{
+  "name": "captain",
+  "version": "1.0.0-canary.0",
+  "main": "index.js",
+  "repository": "git@github.com:adowning/captain.git",
+  "author": "adowning <ashdowning@gmail.com>",
+  "license": "MIT"
+}
