@@ -1,7 +1,8 @@
 #!/bin/bash
+echo asdf >> asdf.txt
+
 git add .
 #!/bin/bash
-
 #get highest tag number
 VERSION=`git describe --abbrev=0 --tags`
 
@@ -18,6 +19,20 @@ VNUM3=$((VNUM3+1))
 NEW_TAG="$VNUM1.$VNUM2.$VNUM3"
 
 echo "Updating $VERSION to $NEW_TAG"
+
+
+#get current hash and see if it already has a tag
+GIT_COMMIT=`git rev-parse HEAD`
+NEEDS_TAG=`git describe --contains $GIT_COMMIT`
+
+#only tag if no tag already (would be better if the git describe command above could have a silent option)
+if [ -z "$NEEDS_TAG" ]; then
+    echo "Tagged with $NEW_TAG (Ignoring fatal:cannot describe - this means commit is untagged) "
+    git tag $NEW_TAG
+    git push --tags
+else
+    echo "Already a tag on this commit"
+fi
 
 #get current hash and see if it already has a tag
 GIT_COMMIT=`git rev-parse HEAD`
@@ -36,7 +51,9 @@ branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
 
 # v1.0.0, v1.5.2, etc.
 versionLabel=$NEW_TAG
-
+echo $versionLabel
+echo $versionLabel
+echo $versionLabel
 
 # establish branch and tag name variables
 devBranch=develop
