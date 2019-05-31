@@ -3,3 +3,5 @@ MAINTAINER Elico Corp <webmaster@elico-corp.com>
 RUN pip3 install --upgrade cffi
 RUN pip3 install captcha simple-crypt recaptcha-client
 RUN pip3 install --upgrade pillow
+RUN pip3 install phonenumbers
+CMD ["start"]
