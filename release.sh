@@ -90,6 +90,6 @@ git merge --no-ff $releaseBranch
 # remove release branch
 git branch -d $releaseBranch
 
-echo $versionLabel
 
 caprover deploy --default
+echo $versionLabel
