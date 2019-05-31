@@ -1,0 +1,7 @@
+{
+  "name": "captain",
+  "version": "1.0.0-canary.0",
+  "main": "index.js",
+  "author": "adowning <ashdowning@gmail.com>",
+  "license": "MIT"
+}
